@@ -58,3 +58,12 @@ n = int(input("Podaj liczbę: "))
 for i in range(2, n + 1):
     if n % i == 0 and czy_pierwsza(i):
             print(i, end=" ")
+
+# Zad 6
+a = int(input("Podaj liczbę a: "))
+b = int(input("Podaj liczbę b: "))
+
+if czy_pierwsza(a) and czy_pierwsza(b) and math.ceil(a - b):
+    print("Bliźniacze")
+else:
+    print("Nie")
