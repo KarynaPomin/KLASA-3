@@ -33,4 +33,28 @@ def suma_dzielnikow(n):
     print(suma)
 suma_dzielnikow(n)
 
-def 
+# Zad 5
+def czy_pierwsza(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Podaj liczbę: "))
+for i in range(2, n + 1):
+    if n % i == 0 and czy_pierwsza(i):
+            print(i, end=" ")# Zad 5
+def czy_pierwsza(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Podaj liczbę: "))
+for i in range(2, n + 1):
+    if n % i == 0 and czy_pierwsza(i):
+            print(i, end=" ")
