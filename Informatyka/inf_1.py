@@ -63,7 +63,21 @@ for i in range(2, n + 1):
 a = int(input("Podaj liczbę a: "))
 b = int(input("Podaj liczbę b: "))
 
-if czy_pierwsza(a) and czy_pierwsza(b) and math.ceil(a - b):
+if czy_pierwsza(a) and czy_pierwsza(b) and (a - b == 2 or b - a == 2):
     print("Bliźniacze")
 else:
     print("Nie")
+    
+# Zad 7
+def czy_doskonala(n):
+    suma = 0
+    for i in range(1, n):
+        if n % i == 0:
+            suma += i
+    if suma == n:
+        print("Tak")
+    else:
+        print("Nie")
+
+n = int(input("Podaj liczbę: "))
+czy_doskonala(n)
