@@ -81,3 +81,36 @@ def czy_doskonala(n):
 
 n = int(input("Podaj liczbę: "))
 czy_doskonala(n)
+
+# Zad.8
+p = int(input("Podaj liczbę: "))
+d = int(input("Podaj liczbę: "))
+def sumaDzielnikow(n):
+     x = 0
+     y = 0
+     while (n - 1 != x):
+         x = x + 1
+         if (n % x == 0):
+             y = y + x
+     return y
+if (sumaDzielnikow(p) == d and sumaDzielnikow(d) == p):
+     print("Tak")
+else:
+     print("Nie")
+
+# Zad.9
+def czyLiczbyBlizniacze(p,d):
+    def czyDzielnikPierwszy(n):
+        x = 0
+        y = -1
+        while (n != x):
+            x = x + 1
+            if (n % x == 0):
+              y = y + 1
+        if (y == 1):
+            return True
+        else:
+            return False
+    if (czyDzielnikPierwszy(p) == True and czyDzielnikPierwszy(d) == True):
+        if (p - d == 2 or p - d == 2):
+            print(p and d)
