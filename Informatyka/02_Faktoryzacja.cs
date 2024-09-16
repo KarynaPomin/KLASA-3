@@ -61,3 +61,26 @@ def Zad_4():
     print(len(Dzielniki))
 
 def Zad_5():
+    n = int(input("Czy liczba Smitha: "))
+    dzielnik = n
+    czynnik = 2
+    sumaCzynnikow = 0
+
+    while dzielnik > 1:
+        while dzielnik % czynnik == 0:
+            dzielnik //= czynnik
+            sumaCzynnikow += SumaCyfr(czynnik)
+        czynnik += 1
+
+    print(SumaCyfr(n), " ", sumaCzynnikow)
+    if SumaCyfr(n) == sumaCzynnikow:
+        print("Tak")
+    else:
+        print("Nie")
+
+def SumaCyfr(liczba):
+    suma = 0
+    while liczba > 0:
+        suma += liczba % 10
+        liczba //= 10
+    return suma
