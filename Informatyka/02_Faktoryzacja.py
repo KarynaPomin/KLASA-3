@@ -73,7 +73,7 @@ def Zad_5():
         czynnik += 1
 
     print(SumaCyfr(n), " ", sumaCzynnikow)
-    if SumaCyfr(n) == sumaCzynnikow:
+    if SumaCyfr(n) == sumaCzynnikow and czyZlozona(n):
         print("Tak")
     else:
         print("Nie")
@@ -84,3 +84,12 @@ def SumaCyfr(liczba):
         suma += liczba % 10
         liczba //= 10
     return suma
+
+def czyZlozona(n):
+    if n < 2:
+        return False
+    pierwiastek = int(math.sqrt(n))
+    for i in range(2, pierwiastek + 1):
+        if n % i == 0:
+            return True
+    return False
