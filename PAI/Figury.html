@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function color(){
+            var kolor = document.getElementById("click").value;
+            document.getElementById("c").setAttribute("fill",kolor);
+            document.getElementById("k").setAttribute("fill",kolor);
+        }
+
+        function figure(){
+            var f = document.getElementById("figury").value;
+            
+            if(f.value == "kolo"){
+                document.getElementById("c");
+            }
+            else if(f.value == "kwadrat"){
+                document.getElementById("k");
+            }
+
+        }
+    </script>
+
+    <svg width="151px" height="151px">
+        <circle id="c" cx="75" cy="75" r="45" fill="kolor"/>
+    </svg>
+
+    <svg width="151px" height="151px"></svg>
+        <rect id="k" x="0" y="0" width="73" height="73" fill="kolor"/>
+    </svg>
+
+<br>
+Podaj kolor: 
+<input type="text" id="click">
+<input type="button" value="Klik" onclick="color()"><br><br>
+
+Wybierz figurę:
+<select id="figury">
+    <option value="kolo">koło</option>
+    <option value="kwadrat">kwadrat</option>
+</select>
+<input type="button" value="Klik" onclick="figure()">
+
+<-! 
+    TRANSFORMACJA
+->
+</body>
+</html>
