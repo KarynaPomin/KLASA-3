@@ -80,8 +80,36 @@ def Zad_4():
     for liczba in liczbyList:
         if PierwszeLista[int(liczba)]:
             sumaLiczbZpliku += 1
-        
     print(sumaLiczbZpliku)
 
+# Zad 5
+def SitoErastosenesaPrzedzial(a, b):
+    CzyPierwszaLista = [True] * (b + 1)
+    CzyPierwszaLista[0] = False
+    CzyPierwszaLista[1] = False
+    p = a
+    while p * p <= b:
+        if CzyPierwszaLista[p]:
+            for i in range(p * p, b + 1, p):
+                CzyPierwszaLista[i] = False
+        p += 1
 
+    return CzyPierwszaLista
 
+def Zad_5():
+    a, b = map(int, input("Podaj przedział: ").split())
+    while a < 2 or a > b:
+        print("Błąd! Podaj 2 < a < b")
+        a, b = map(int, input("Podaj przedział: ").split())
+
+    czyPierwszeList = SitoErastosenesaPrzedzial(a, b)
+    ileLiczbPierwszych = 0
+    sumaLiczbPierwszych = 0
+
+    for i in range(a, b + 1):
+        if czyPierwszeList[i]:
+            print(i, end=" ")
+            ileLiczbPierwszych += 1
+            sumaLiczbPierwszych += i
+    print("\nIlość: ", ileLiczbPierwszych)
+    print("Suma: ", sumaLiczbPierwszych)
