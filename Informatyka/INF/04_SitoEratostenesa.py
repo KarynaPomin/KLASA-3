@@ -113,3 +113,35 @@ def Zad_5():
             sumaLiczbPierwszych += i
     print("\nIlość: ", ileLiczbPierwszych)
     print("Suma: ", sumaLiczbPierwszych)
+
+# Zad 6
+def IleSitoErastosenesa(n):
+    CzyPierwszaLista = [True] * (n + 1)
+    CzyPierwszaLista[0] = False
+    CzyPierwszaLista[1] = False
+
+    p = 2
+    while p * p <= n:
+        if CzyPierwszaLista[p]:
+            for i in range(p * p, n + 1, p):
+                CzyPierwszaLista[i] = False
+        p += 1
+
+    ileLiczb = 0
+    for i in range(2, n + 1):
+        if CzyPierwszaLista[i]:
+            ileLiczb += 1
+
+    return ileLiczb
+
+def Zad_5():
+    with open("ciag.txt") as plik:
+        ciagList = list(map(int, plik.read().split()))
+        ileLiczbPierwszych = IleSitoErastosenesa(1000)
+        print(len(ciagList))
+        jakiProcentstanowiaPierwsze = round(ileLiczbPierwszych / len(ciagList), 3) * 100
+
+        print("Ile: ", ileLiczbPierwszych)
+        print("Procent l.p: ", jakiProcentstanowiaPierwsze)
+        plik.close()
+Zad_5()
