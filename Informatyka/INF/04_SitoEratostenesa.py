@@ -71,15 +71,15 @@ def SitoErastosenesaList(n):
 
 def Zad_4():
     sumaLiczbZpliku = 0
-    with open("liczby.txt") as liczbyList:
+    plik = open("liczby.txt", "r")
+    liczbyList = list(map(int, input().split()))
+    plik.close()
 
-        PierwszeLista = SitoErastosenesaList(1000)
+    PierwszeLista = SitoErastosenesaList(1000)
 
-        for liczba in liczbyList:
-            if PierwszeLista[int(liczba)]:
-                sumaLiczbZpliku += 1
-
-        liczbyList.close()
+    for liczba in liczbyList:
+        if PierwszeLista[int(liczba)]:
+            sumaLiczbZpliku += 1
         
     print(sumaLiczbZpliku)
 
