@@ -144,4 +144,3 @@ def Zad_5():
         print("Ile: ", ileLiczbPierwszych)
         print("Procent l.p: ", jakiProcentstanowiaPierwsze)
         plik.close()
-Zad_5()
