@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmęczony jestem :[</title>
+    <link href="myStyle.css" rel="stylesheet">
+    <script src="myScript.js"></script>
+</head>
+<body>
+    <div id="container">
+            <svg id="viewBox" width="150px" height="150px"></svg>
+
+        <div id="form">
+            <form>
+                <label for="chooseFigere">Figura</label>
+                <select id="figureSelect">
+                    <option value="poligon">Trójkąt</option>
+                    <option value="circle">Koło</option>
+                    <option value="rectangle">Kwadrat</option>
+                </select><br>
+                <label for="widthFigure">Szerokość:</label><input type="number" id="widthFigure"><br>
+                <label for="heightFigure">Wysokość:</label><input type="number" id="heightFigure"><br>
+                <label for="colorFigure">Kolor:</label><input type="color" id="colorFigure"><br>
+                <input type="button" id="viewFigure" onclick="ViewFigure()" value="Wyświetl figurę">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

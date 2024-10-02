@@ -1,0 +1,17 @@
+#viewBox{
+    border: solid 1px black;
+    padding: 10px;
+    margin: 10px;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Wyśrodkowanie w pionie */
+    height: 100vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
