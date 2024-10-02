@@ -13,14 +13,9 @@ def WyszukiwanieBinarne(T, a, n):
             prawy = srodek
 
     if T[lewy] == a:
-        return T[lewy] == a
-
-T = [1, 2, 3, 4, 5, 6, 7]
-
-if WyszukiwanieBinarne(T, 9, len(T)):
-    print("Jest")
-else:
-    print("Brak")
+        print("Tak")
+    else:
+        print("Nie")
 
 # Zad 1
 def Zad_1():
