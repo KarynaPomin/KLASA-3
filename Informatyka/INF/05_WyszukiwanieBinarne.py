@@ -21,3 +21,14 @@ if WyszukiwanieBinarne(T, 9, len(T)):
     print("Jest")
 else:
     print("Brak")
+
+# Zad 1
+def Zad_1():
+    T = []
+    print("Podaj rosnący ciąg")
+    for i in range(10):
+        element = int(input(f"Podaj {i + 1} element: "))
+        T.append(element)
+
+    userNumber = int(input("Sprawdź czy jest w liście: "))
+    WyszukiwanieBinarne(T, userNumber, 10)
