@@ -1,6 +1,13 @@
 def CzyPosortowana(T):
     return 
 
+# do 1 zadania ! poprawić
+def CzyMalejacy(T):
+    for i in range(n - 1):
+        if T[i] > T[i + 1]:
+            return False
+    return True
+
 def WyszukiwanieBinarne(T, a, n):
     lewy = 0
     prawy = n - 1
