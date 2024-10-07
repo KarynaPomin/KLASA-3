@@ -51,10 +51,86 @@ public class Reader : Person
   {
     BorrowedBooksList = new List<Book>();
   }
-  public void AddBook(Book book)
+  public void BorrowBook(Book book)
   {
     BorrowedBooksList.Add(book);
     Console.WriteLine($"Czytelnik {FirstName} {LastName} wypożyczył książkę: {book.Title}");
+  }
+}
+
+public class Library
+{
+  public List<Book> BooksList { get; set; }
+  public List<Author> AuthorsList { get; set; }
+  public List<Reader> ReadersList { get; set; }
+
+  public Library()
+  {
+    BooksList = new List<Book>();
+    AuthorsList = new List<Author>();
+    ReadersList = new List<Reader>();
+  }
+
+  public void AddBook( Book book)
+  {
+    BooksList.Add(book);
+  }
+
+  public void AddReader( Reader reader)
+  {
+    ReadersList.Add(reader);
+  }
+
+  public void AddAuthor(Author author)
+  {
+    AuthorsList.Add(author);
+  }
+
+  public void BorrowBook(Reader reader, Book book)
+  {
+    if (BooksList.Contains(book))
+    {
+      reader.BorrowBook(book);
+      BooksList.Remove(book);
+    }
+    else
+    {
+      Console.WriteLine("Książka nie jest dostępna w bibliotece");
+    }
+  }
+
+  public void DisplayBooks()
+  {
+    Console.WriteLine("Książki w bibliotece:");
+    foreach(Book book in BooksList) 
+    {
+      Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} {book.PublicationYear}");
+    }
+  }
+
+  public void DisplayAuthors()
+  {
+    Console.WriteLine("Autorzy w bibliotece:");
+    foreach(Author author in AuthorsList)
+    {
+      Console.WriteLine($"{author.FirstName} {author.LastName}");
+    }
+  }
+
+
+  //dodać metodę wyswietlającą wszystkich autorów w formie tabeli
+  //???????????????????????
+
+  public void DisplayBorrowedBooks()
+  {
+    Console.WriteLine("Wypożyczone książki:");
+    foreach (var reader  in ReadersList)
+    {
+      foreach (Book book in reader.BorrowedBooksList)
+      {
+        Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} ({book.PublicationYear}) wypożyczona przez {reader.FirstName} {reader.LastName}");
+      }
+    }
   }
 }
 
@@ -64,8 +140,38 @@ namespace _2_dziedziczenie_kompozycja_biblioteka
   {
     static void Main(string[] args)
     {
-      Author author = new Author("Adam", "Mickiewicz");
-      Book book = new Book("Pan Tadeusz", author, 1834);
+      Author author1 = new Author("Adam", "Mickiewicz");
+      Author author2 = new Author("Henryk", "Sienkiewicz");
+      
+      Book book1 = new Book("Pan Tadeusz", author1, 1834);
+      Book book2 = new Book("Quo Vadis", author2, 1896);
+
+      author1.AddBook(book1);
+      author2.AddBook(book2);
+
+      Library library = new Library();
+
+      library.AddBook(book1);
+      library.AddBook(book2);
+
+      library.AddAuthor(author1);
+      library.AddAuthor(author2);
+
+      Reader reader1 = new Reader("Jan", "Kowalski");
+      Reader reader2 = new Reader("Anna", "Nowak");
+
+      library.AddReader(reader1);
+      library.AddReader(reader2);
+
+      //wyświetlenie menu
+      bool exit = false;
+      while (!exit)
+      {
+
+      }
+
+
+
       Console.ReadKey();
     }
   }
