@@ -4,6 +4,7 @@ def CzyMalejacy(T):
             return False
     return True
 
+
 def WyszukiwanieBinarne(T, a, n):
     lewy = 0
     prawy = n - 1
@@ -19,6 +20,7 @@ def WyszukiwanieBinarne(T, a, n):
         print("Tak")
     else:
         print("Nie")
+
 
 # Zad 1
 def Zad_1():
@@ -40,6 +42,7 @@ def Zad_1():
     userNumber = int(input("Sprawdź czy jest w liście: "))
     WyszukiwanieBinarne(T, userNumber, 10)
 
+
 # Zad 2
 def RekuWyszukiwanieBinarne(T, a, n):
     print(T)
@@ -53,7 +56,17 @@ def RekuWyszukiwanieBinarne(T, a, n):
     if T[n // 2] > a:
         T = T[:(n // 2):]
         return RekuWyszukiwanieBinarne(T, a, len(T))
-    
+
+def RekWbinarne(T, a, lewy, prawy):
+    if lewy < prawy:
+        srodek = (lewy + prawy) // 2
+        if T[srodek] < a:
+            return RekWbinarne(T, a, srodek + 1, prawy)
+        else:
+            return RekWbinarne(T, a, lewy, srodek)
+
+    return T[lewy] == a
+
 def Zad_2():
     T = [0] * 10
     print("Podaj niemalejący ciąg: ")
@@ -61,7 +74,6 @@ def Zad_2():
     for i in range(10):
         element = int(input(f"Podaj {i + 1} element: "))
         T[i] = element
-
 
     if CzyMalejacy(T) == False:
         while CzyMalejacy(T) == False:
@@ -72,7 +84,24 @@ def Zad_2():
 
     userNumber = int(input("Sprawdź czy jest w liście: "))
 
-    if RekuWyszukiwanieBinarne(T, userNumber, 10) == userNumber:
+    # if RekuWyszukiwanieBinarne(T, userNumber, 10) == userNumber:
+    #     print("Tak")
+    # else:
+    #     print("Nie")
+
+    if RekWbinarne(T, userNumber, 0, len(T) - 1):
         print("Tak")
     else:
         print("Nie")
+
+# Zad_3 !!! Nie zakończone !!!
+def Zad_3():
+    plik = open("ciag.txt", "r")
+    Ciagi = list(map(int, plik.readline().split("\n")))
+    plik.close()
+
+    for ciag in Ciagi:
+        if RekWbinarne(ciag, 10, 0, len(ciag)):
+            print(ciag)
+
+Zad_3()
