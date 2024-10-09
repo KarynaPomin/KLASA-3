@@ -105,3 +105,16 @@ def Zad_3():
         if RekWbinarne(C, 10, 0, len(C) - 1):
             print(C)
 
+# Zad 4
+def Zad_4():
+    plik = open("ciag2.txt", "r")
+    n = int(plik.readline().rstrip()) # rstrip - usuwa białe znaki
+
+    for i in range(n):
+        dCiag = int(plik.readline().rstrip())
+        ciag = list(map(int, plik.readline().split()))
+
+        if RekWbinarne(ciag, 10, 0, len(ciag) - 1):
+            print(ciag)
+
+    plik.close()
