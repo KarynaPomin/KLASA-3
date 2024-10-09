@@ -118,3 +118,14 @@ def Zad_4():
             print(ciag)
 
     plik.close()
+    
+# Wpisanie dane z pliku "ciag2.txt"
+def OdczytanieInput():
+    n = int(input().rstrip())  # rstrip - usuwa białe znaki
+
+    for i in range(n):
+        dCiag = int(input().rstrip())
+        ciag = list(map(int, input().split()))
+
+        if RekWbinarne(ciag, 10, 0, len(ciag) - 1):
+            print(ciag)
