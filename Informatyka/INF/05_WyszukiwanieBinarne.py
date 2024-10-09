@@ -94,14 +94,14 @@ def Zad_2():
     else:
         print("Nie")
 
-# Zad_3 !!! Nie zakończone !!!
+# Zad_3
 def Zad_3():
     plik = open("ciag.txt", "r")
-    Ciagi = list(map(int, plik.readline().split("\n")))
+    Ciagi = plik.readlines()
     plik.close()
 
     for ciag in Ciagi:
-        if RekWbinarne(ciag, 10, 0, len(ciag)):
-            print(ciag)
+        C = list(map(int, ciag.split()))
+        if RekWbinarne(C, 10, 0, len(C) - 1):
+            print(C)
 
-Zad_3()
