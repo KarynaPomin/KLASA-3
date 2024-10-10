@@ -27,3 +27,5 @@ Console.WriteLine(NWD(a, b));
 //  zwracany typ i opis: < zwraca typ int największego wspólnego dzielnika dwóch liczb >
 //  autor: < numer zdającego >
 //***********************************************
+
+// draw.io - schematy blokowe
